@@ -1,0 +1,16 @@
+{% extends "relatorio/relatorio.html" %}
+
+{% block resultado_relatorio %} 
+	<h3>Relatório de entrega de produtos de {{ mes }} / {{ ano }}</h3>
+	<ul>
+	<li> 
+		Clipping de Notícias: {{ tipo1 }}
+	</li>
+	<li>
+		Boletim Epidemiológico: {{ tipo2 }}
+	</li>
+	<li>
+		Boletim Monitoramento: {{ tipo3 }}
+	</li>
+	</ul>
+{% endblock %}

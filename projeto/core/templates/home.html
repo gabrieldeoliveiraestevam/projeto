@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="splash">
+    <div class="pure-g-r">
+        <div class="pure-u-1">
+            <div class="l-box splash-text">
+                <h1 class="splash-head">
+                    GGS Controle
+                </h1>
+                <h2 class="splash-subhead">
+                    GGS Controle é uma plataforma WEB da Sala de Situação da Faculdade de Saúde da Universidade de Brasília que realiza o gerenciamento de pedido e entrega de produtos gerados pela sala. 
+                </h2>
+                
+                {% if not user.is_authenticated %} <!-- Verifica se o usuário está logado -->
+                <div class="pure-controls">
+                    <a href="{% url 'accounts:login' %}" class="pure-button-primary">Acesse Já!</a>
+                </div>
+                {% endif %}
+                
+                <h3 class="splash-subhead">
+                    Para mais informações sobre os produtos acesse o ícone abaixo:
+                </h3>
+                <!-- Link para acessar as informações dos produtos - Abre nova guia do navegador-->
+                <a href="https://fs.unb.br/saladesituacao/documentos-tecnicos" class="pure-button-primary" 
+                target="_blank">Produtos</a>
+                {% if user.is_authenticated %} <!-- Verifica se o usuário está logado -->
+                <h3 class="splash-subhead">
+                    Segue abaixo legenda das opções da barra de menu:        
+                </h3>
+                <ul>
+                {% if user.is_staff %}
+                <li>
+                    Enviar Email: realiza a entrega dos produtos gerados pela sala.
+                </li>
+                <li>
+                    Relatório: gera relatórios por período informando a quantidade de produtos entregues.
+                </li>
+                {% endif %}
+                <li>
+                    Painel: controle pessoal da conta, permiti a alteração de dados e senha, como também disponibiliza a opção de deletar a conta.
+                </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

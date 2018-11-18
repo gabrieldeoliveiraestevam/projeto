@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <ul class="breadcrumb"> 
+            {% block breadcrumb %} <!-- Bloco alterado dependendo da operação -->  
+            <li><a href="{% url 'accounts:dashboard' %}">Meu Painel</a></li>
+            {% endblock %}
+        </ul>
+    </div>
+    <div class="pure-u-1-3">
+        <div class="pure-menu pure-menu-open">
+            <ul>
+                <li class="pure-menu-heading">
+                    Bem-vindo, {{ user.name }}
+                </li>
+                
+                <li class="pure-menu-heading">Minha Conta</li>
+                <!-- Aciona url de alteração de dados do usuário -->
+                <li>
+                    <a href="{% url 'accounts:edit' %}">
+                        <i class="fa fa-cog"></i> <!-- Adiciona icone -->
+                        Editar Conta
+                    </a>
+                </li>
+                <!-- Aciona url de alteração de senha do usuário --> 
+                <li>
+                    <a href="{% url 'accounts:edit_password' %}">
+                        <i class="fa fa-lock"></i> <!-- Adiciona icione -->
+                        Editar Senha
+                    </a>
+                </li>
+                <!-- Aciona url para deletar o usuário -->
+                <li>
+                    <a href="{% url 'accounts:delete' %}">
+                        <i class="fa fa-exclamation-circle"></i> <!-- Adiciona icone -->
+                        Deletar Conta
+                    </a>
+                </li>
+                            
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-2-3">
+        <div class="inner">
+            {% block dashboard_content %} <!-- Bloco alterado dependendo da operação --> 
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

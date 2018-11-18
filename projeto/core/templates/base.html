@@ -1,0 +1,52 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GGS Controle - Plataforma de pedido e entrega de produtos da Sala de Situação FS/UnB" />
+    <title>GGS Controle</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+    <div class="header">
+        <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+            <a class="pure-menu-heading" href="{% url 'core:home' %}">Início</a>
+            {% if user.is_authenticated %} <!-- Verifica se o usuário está logado -->
+            {% if user.is_staff %} 
+            <!-- Disponibiliza opção para enviar email -->
+            <a class="pure-menu-heading" href="{% url 'email:enviar_email' %}">Enviar Email</a>
+            <!-- Disponibiliza opção para enviar relatório -->
+            <a class="pure-menu-heading" href="{% url 'relatorio:relatorio' %}">Relatório</a>
+            {% endif %}
+            <!-- Disponibiliza painel do usuário -->
+            <a class="pure-menu-heading"  href="{% url 'accounts:dashboard' %}">Painel</a>
+            <!-- Disponibiliza saída --> 
+            <a class="pure-menu-heading"  href="{% url 'accounts:logout' %}">Sair</a> 
+            {% else %} <!-- Caso contrário disponibiliza entrada -->
+            <a class="pure-menu-heading"  href="{% url 'accounts:login' %}">Entrar</a></li>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="pure-g-r content-ribbon">
+            <!-- Verifica se existe mensagem -->
+            {% if messages %}
+            <aside class="pure-u-1">
+                <!-- Informa mensagens de sucesso ou erro -->
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </aside>
+            {% endif %}
+        </div>
+        {% block content %}{% endblock %}
+        <div class="footer">
+            GGS Controle - Plataforma de pedido e entrega de produtos da Sala de Situação FS/UnB
+        </div>
+    </div>
+    <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>
+</body>
+</html>

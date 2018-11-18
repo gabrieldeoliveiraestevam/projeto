@@ -1,0 +1,20 @@
+{% extends 'accounts/dashboard.html' %}
+
+{% block breadcrumb %}
+    {{ block.super }} <!-- Menu -->
+    <li>/</li>
+    <li><a href="{% url 'accounts:delete' %}">Deletar Conta</a></li> <!-- redirenciona para url de edição -->
+{% endblock %}
+
+{% block dashboard_content %}
+<form action="" method="post">
+	{% csrf_token %}
+	<h3>Você deseja realmente deletar sua conta?</h3>
+	<!-- Botão para confirmar a operação para deletar o usuário -->
+	<div class="pure-controls">
+		<button type="submit" class="pure-button pure-button-primary">Confirmar</button>
+	<!-- Botão para confirmar cancelar a operação para deletar o usuário -->
+		<a href="{% url 'accounts:dashboard' %}" class="pure-button">Voltar</a>
+	</div>
+</form>
+{% endblock %}
