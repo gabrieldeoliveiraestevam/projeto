@@ -16,7 +16,7 @@ def send_mail_template(subject, template_name, context, recipient_list,
     # Formatação alternativa de email
     email = EmailMultiAlternatives(
         subject=subject, body=message_txt, from_email=from_email, 
-        to=recipient_list
+        bbc=recipient_list
     )
 
     # Verifica se arquivo foi informado
