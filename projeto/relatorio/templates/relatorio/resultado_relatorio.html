@@ -1,8 +1,18 @@
 {% extends "relatorio/relatorio.html" %}
 
 {% block resultado_relatorio %} 
-	<h3>Relatório de entrega de produtos de {{ mes }} / {{ ano }}</h3>
-	<ul>
+
+<h3>Relatório de entrega de produtos em 
+	{% if tipo_pesquisa == "3" %}
+	{{ dia }} /	{{ mes }} /    
+	{% endif %}
+	{% if tipo_pesquisa == "2" %}
+	{{ mes }} / 
+	{% endif %}
+	{{ ano }}
+</h3>
+
+<ul>
 	<li> 
 		Clipping de Notícias: {{ tipo1 }}
 	</li>
@@ -12,5 +22,6 @@
 	<li>
 		Boletim Monitoramento: {{ tipo3 }}
 	</li>
-	</ul>
+	
+</ul>
 {% endblock %}
