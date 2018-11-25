@@ -24,10 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3m!y4u$&)!@=+#pgen5)#^+_vmu4sa8z0bnni1x4q7t^c#udx*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+TEMPLATE_DEBUG = False
 
 # Application definition
 
@@ -73,18 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'projeto.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -196,3 +183,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ] 
+
+try:
+    from projeto.local_settings import *
+except ImportError:
+    pass
