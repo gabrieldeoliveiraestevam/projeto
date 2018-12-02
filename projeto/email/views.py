@@ -17,9 +17,11 @@ def enviar_email(request):
 			if tipo_produto == '1':
 				subject = 'Clipping de Notícias de Eventos de Interesse à Saúde Pública'				
 			elif tipo_produto == '2':
-				subject = 'Boletim Epidemiológico - Dengue, Zika e Chikungunya'
+				subject = 'Boletim Epidemiológico '
 			elif tipo_produto == '3':
 				subject = 'Boletim de Monitoramento de Eventos de Interesse a Saúde'
+			
+			subject = subject + " " + form.cleaned_data['complemento_assunto']
 
 			# Seleciona clientes cadastrados para receberem o produto escolhido
 			emails = Demanda.objects.filter(tipo_produto=tipo_produto)

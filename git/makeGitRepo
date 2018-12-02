@@ -1,0 +1,64 @@
+#!/bin/bash
+
+echo -n "Informe o nome do novo repositorio: "
+
+read repoName
+
+userNameGitHub=gabrieldeoliveiraestevam
+passGitHub=glok123654
+
+curl -u $userNameGitHub:$passGitHub https://api.github.com/users/$userNameGitHub/repos --silent | grep "name" | grep '"name":' |cut -f2 -d: |sed 's/"//g' |sed 's/,//g' | grep $repoName 1> /dev/null 2> null
+
+if [ $? -eq 0 ]; then
+
+        echo Reposito ja existe.
+
+else
+
+        echo Criando o respositorio...
+
+        curl -u $userNameGitHub:$passGitHub https://api.github.com/user/repos -d "{\"name\":\"$repoName\"}" 1> /dev/null 2> null
+
+        echo Verificando o repositorio remoto...
+
+        curl -u $userNameGitHub:$passGitHub https://api.github.com/users/$userNameGitHub/repos --silent | grep "name" | grep '"name":' |cut -f2 -d: |sed 's/"//g' |sed 's/,//g' | grep $repoName 1> /dev/null 2> null
+
+        if [ $? -eq 0 ]; then
+
+                echo Reposito criando com êxito no GitHub.
+
+                echo Criando diretorio do repositorio do projeto: $repoName
+
+                mkdir $repoName
+
+                cd $repoName
+
+                echo Inicializando diretorio local para o repositorio
+
+                git init
+
+                echo Criando arquivo README.md
+
+                echo "# $repoName" >> README.md
+
+                echo "Propondo mudanças (enviando do diretorio de trabalho) para o estagio INDEX..."
+
+                git add README.md
+
+                echo "Confirmando as mudanças propostas (commit) - enviando para o estagio HEAD"
+
+                git commit -m "Repositorio de testes Prorede Telecom - $repoName"
+
+                echo Adicionando origem para enviar dados do repositorio local para remoto
+
+                git remote add origin https://github.com/gabrieldeoliveiraestevam/$repoName.git
+
+                git push -u origin master
+
+        else
+
+                echo Repositorio nao foi criado no GitHub
+
+        fi
+
+fi

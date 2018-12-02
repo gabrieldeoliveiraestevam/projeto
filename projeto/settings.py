@@ -113,27 +113,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'projeto', 'media')
 
 MEDIA_URL  = '/media/'
 
-# E-mails
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Para enviar email em produção
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Para enviar email em desenvolvimento
-# DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'senha'
-# EMAIL_PORT = 587
-
-# CONTACT_EMAIL = 'contato@simplemooc.com'
 
 # E-mails - GMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Para enviar email em produção
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Para enviar email em desenvolvimento
-DEFAULT_FROM_EMAIL = 'Sala de Situação UnB <gabrieldeoliveiraestevam@gmail.com>'
+DEFAULT_FROM_EMAIL = 'Sala de Situação UnB <saladesituacaofs@gmail.com>'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gabrieldeoliveiraestevam@gmail.com'
-EMAIL_HOST_PASSWORD = 'glok123654'
+EMAIL_HOST_USER = 'saladesituacaofs@gmail.com'
+EMAIL_HOST_PASSWORD = 'centeias1734'
 EMAIL_PORT = 465
 # EMAIL_PORT = 587
 
@@ -142,11 +131,12 @@ EMAIL_PORT = 465
 # E-mails - UNB
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Para enviar email em produção
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Para enviar email em desenvolvimento
-# DEFAULT_FROM_EMAIL = 'Sala de Situação UnB <170142591@aluno.unb.br>'
+# DEFAULT_FROM_EMAIL = 'Sala de Situação UnB <sdscenteias@unb.br>'
 # EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
 # EMAIL_HOST = 'mail.unb.br'
-# EMAIL_HOST_USER = '170142591@aluno.unb.br'
-# EMAIL_HOST_PASSWORD = 'glok123654'
+# EMAIL_HOST_USER = 'sdscenteias@unb.br'
+# EMAIL_HOST_PASSWORD = 'sa1734'
 # EMAIL_PORT = 587
 
 # CONTACT_EMAIL = 'gabrieldeoliveiraestevam@gmail.com'

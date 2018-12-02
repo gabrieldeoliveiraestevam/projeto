@@ -11,7 +11,7 @@ urlpatterns = [
     path("", include('projeto.core.urls',namespace='core')), # Inicio da cadeia de urls
     path("conta/", include('projeto.accounts.urls',namespace='accounts')), 
     path("email/", include('projeto.email.urls',namespace='email')), 
-    path("relatorio/", include('projeto.relatorio.urls',namespace='relatorio')), 
+    path("relatorio/", include('projeto.relatorio.urls',namespace='relatorio')),
     path('admin/', admin.site.urls),
 ]
 

@@ -17,6 +17,7 @@ class Email(forms.Form):
 	tipo_produto = forms.ChoiceField(
 		choices=TIPO_CHOICES, label='Produto', widget=forms.Select(), required=True
 	)
+	complemento_assunto = forms.CharField(label='Complemento do Assunto', required=False)
 	mensage = forms.CharField(label='Mensagem', widget=forms.Textarea, required=False) # Campo texto de área
 	file = forms.FileField(label='Arquivo', required=True)
 
