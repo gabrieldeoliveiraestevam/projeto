@@ -2,10 +2,12 @@ db:
   image: postgres
 web:
   build: .
-  command: ["./run_web.sh"]
+  command: chmod +x run_web.sh
+  command: ./run_web.sh
+  entrypoint: /entrypoint.sh
   volumes:
     - .:/code
   ports:
     - "8000:8000"
   links:
-  - db
+    - db
