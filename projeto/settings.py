@@ -160,7 +160,7 @@ DATABASES = {
 
 # Heroku settings
 
-import dj_database_url
+# import dj_database_url - incluir no requirements.txt = dj-database-url==0.5.0
 
 # DATABASES = {
 #   'default':  dj_database_url.config(),
