@@ -11,9 +11,9 @@ RUN pip install -r requirements.txt
 ADD . /code/
 
 ENV DJANGO_DB_NAME=default
-ENV DJANGO_SU_NAME=admin
+ENV DJANGO_SU_NAME=gabriel1
 ENV DJANGO_SU_EMAIL=admin@my.company
-ENV DJANGO_SU_PASSWORD=mypass
+ENV DJANGO_SU_PASSWORD=123456
 
 RUN python -c "import django; django.setup(); \
    from django.contrib.auth.management.commands.createsuperuser import get_user_model; \
