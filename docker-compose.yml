@@ -1,6 +1,5 @@
 db:
   image: postgres
-
 web:
   build: .
   command: ["./run_web.sh"]
