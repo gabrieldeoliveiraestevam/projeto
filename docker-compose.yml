@@ -7,7 +7,6 @@ services:
   web:
     build: .
     image: gabrieldeoliveiraestevam/projetofinal2_web
-    entrypoint: ./entrypoint.sh
     command: chmod +x run_web.sh
     command: ./run_web.sh
     volumes:
@@ -15,4 +14,12 @@ services:
     ports:
       - "8000:8000"
     links:
-      - db
+      - db:db
+    environment:
+      - DJANGO_SETTINGS_MODULE=projeto.settings
+      - RDS_DB_NAME=postgres
+      - RDS_USERNAME=postgres
+      - RDS_PASSWORD=''
+      - RDS_HOSTNAME=db
+      - RDS_PORT=5432
+  

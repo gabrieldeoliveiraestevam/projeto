@@ -91,7 +91,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+DATABASES = {
+    'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': os.environ['RDS_DB_NAME'],
+         'USER': os.environ['RDS_USERNAME'],
+         'PASSWORD': os.environ['RDS_PASSWORD'],
+         'HOST': os.environ['RDS_HOSTNAME'],
+         'PORT': os.environ['RDS_PORT'],
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -126,37 +135,11 @@ EMAIL_HOST_PASSWORD = 'centeias1734'
 EMAIL_PORT = 465
 # EMAIL_PORT = 587
 
-# CONTACT_EMAIL = 'gabrieldeoliveiraestevam@gmail.com'
-
-# E-mails - UNB
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Para enviar email em produção
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Para enviar email em desenvolvimento
-# DEFAULT_FROM_EMAIL = 'Sala de Situação UnB <sdscenteias@unb.br>'
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_HOST = 'mail.unb.br'
-# EMAIL_HOST_USER = 'sdscenteias@unb.br'
-# EMAIL_HOST_PASSWORD = 'sa1734'
-# EMAIL_PORT = 587
-
-# CONTACT_EMAIL = 'gabrieldeoliveiraestevam@gmail.com'
-
 # Usuário
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_URL = 'accounts:logout'
 AUTH_USER_MODEL = 'accounts.User' # nome do aplicativo.model - Define como model de usuário padrão
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': '5432',
-    }
-}
 
 # Heroku settings
 
