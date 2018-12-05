@@ -1,13 +1,18 @@
-db:
-  image: postgres
-web:
-  build: .
-  entrypoint: ./entrypoint.sh
-  command: chmod +x run_web.sh
-  command: ./run_web.sh
-  volumes:
-    - .:/code
-  ports:
-    - "8000:8000"
-  links:
-    - db
+version: '3'
+
+services:
+
+  db:
+    image: postgres
+  web:
+    build: .
+    image: gabrieldeoliveiraestevam/projetofinal2_web
+    entrypoint: ./entrypoint.sh
+    command: chmod +x run_web.sh
+    command: ./run_web.sh
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    links:
+      - db
