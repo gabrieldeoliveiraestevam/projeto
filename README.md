@@ -8,16 +8,20 @@ Clone o repositório:
 https://github.com/gabrieldeoliveiraestevam/projeto.git
 ```
 
+```
+$ git clone https://github.com/gabrieldeoliveiraestevam/projeto.git
+```
+
 Levantar o ambiente:
 
 ```
-docker-compose up
+$ docker-compose up
 ```
 
 Execute o comando de criação do super usuário (funcionário da Sala de Situação do Centeias):
 
 ```
-docker-compose run web python manage.py createsuperuser
+$ docker-compose run web python manage.py createsuperuser
 ```
 
 Criar usuário com os seguintes dados:
