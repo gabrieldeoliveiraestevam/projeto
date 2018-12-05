@@ -23,9 +23,10 @@ docker-compose run web python manage.py createsuperuser
 Criar usuário com os seguintes dados:
 
 ```
-Usuário: saladesituacao
-Email: saladesituacaofs@gmail.com
-Senha: 12345678
+Nome de Usuário: saladesituacao
+E-mail: saladesituacaofs@gmail.com
+Password: centeias1734
+Password (again): centeias1734
 ```
 
 Lembrando que a aplicação permiti a alteração de senha, sendo assim, a senha informada acima é somente provisória.
