@@ -14,7 +14,7 @@ Levantar o ambiente:
 docker-compose up
 ```
 
-Execute o comando de criação do super usuário (funcionário do Centeias):
+Execute o comando de criação do super usuário (funcionário da Sala de Situação do Centeias):
 
 ```
 docker-compose run web python manage.py createsuperuser
